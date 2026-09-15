@@ -17,3 +17,6 @@ env/
 # Sistema
 .DS_Store
 Thumbs.db
+
+# Memoria y config local de Claude Code (no versionar)
+.claude/
