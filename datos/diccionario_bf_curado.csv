@@ -1,0 +1,41 @@
+variable,tipo,origen,descripcion
+Transaction_ID,texto,original,Identificador único de la transacción
+Purchase_Date,fecha,original,Fecha de la compra
+Transaction_Hour,entero,original,Hora de la compra (0-23)
+Campaign_Year,entero,original,"Año de campaña (2022, 2023, 2024)"
+Days_To_Black_Friday,entero,original,Días respecto de Black Friday (0 = ese día)
+Is_Weekend,binaria,original,1 si la compra fue sábado o domingo
+En_Ventana_BF,binaria,GENERADA,1 si Days_To_Black_Friday está entre -3 y +5 (ventana del evento)
+Dias_Abs_BF,entero,GENERADA,Distancia absoluta en días a Black Friday
+User_ID,entero,original,Identificador del cliente
+Product_ID,texto,original,Identificador del producto
+Sales_Channel,categórica,original,Canal de venta: Online / Store
+Gender,categórica,original,Género del cliente (M/F)
+Age,categórica,original,Rango de edad del cliente
+Occupation,categórica,original,Ocupación enmascarada (0-20)
+City_Category,categórica,original,Categoría de ciudad enmascarada (A/B/C)
+Stay_In_Current_City_Years,categórica,original,"Años de residencia (0,1,2,3,4+)"
+Marital_Status,binaria,original,Estado civil (0/1)
+Age_Ordinal,entero,GENERADA,Age codificada ordinalmente (0 = 0-17 ... 6 = 55+)
+Residencia_Anios,entero,GENERADA,Años de residencia como entero; '4+' se mapea a 4
+Residencia_Abierta,binaria,GENERADA,1 si la residencia original era '4+' (intervalo abierto)
+Product_Category_1,categórica,original,"Categoría principal del producto (1-20, enmascarada)"
+Product_Category_2_cat,categórica,MODIFICADA,Categoría secundaria; -1 = No_aplica (era nulo estructural)
+Product_Category_3_cat,categórica,MODIFICADA,Categoría terciaria; -1 = No_aplica (era nulo estructural)
+N_Categorias,entero,GENERADA,"Cantidad de categorías informadas del producto (1, 2 o 3)"
+Multi_Categoria,binaria,GENERADA,1 si el producto tiene más de una categoría
+CPI_Index,decimal,MODIFICADA,Índice de precios; nulos RECONSTRUIDOS con el valor del mes (error cero)
+Monthly_Inflation_Rate,decimal,original,Inflación mensual. Nota: es la variación % exacta del CPI_Index
+Consumer_Confidence_Index,decimal,MODIFICADA,Confianza del consumidor; nulos RECONSTRUIDOS por mes (error cero)
+Retail_Activity_Index,decimal,original,Índice de actividad del retail (mensual)
+Retail_Activity_MoM,decimal,original,Variación mensual del índice anterior (derivada exacta)
+Category_Activity_Index,decimal,original,"Actividad del rubro por (mes, Product_Category_1)"
+Category_Activity_MoM,decimal,original,Variación mensual del índice anterior
+Producto_Precio_Medio,decimal,GENERADA,Purchase medio histórico del producto. LEAKAGE: recalcular por fold
+Producto_N_Ventas,entero,GENERADA,Cantidad de ventas del producto en el período
+Cliente_Gasto_Medio,decimal,GENERADA,Purchase medio histórico del cliente. LEAKAGE: recalcular por fold
+Cliente_N_Compras,entero,GENERADA,Cantidad de compras del cliente en el período
+Ratio_Precio_vs_Cliente,decimal,GENERADA,Producto_Precio_Medio / Cliente_Gasto_Medio. LEAKAGE: recalcular por fold
+Satisfaccion,decimal,MODIFICADA,Satisfacción; 125.314 valores IMPUTADOS con KNN k=100. Posterior a la compra: leakage si se usa para predecir Purchase
+Sat_Fue_Imputada,binaria,GENERADA,1 si el valor de Satisfaccion fue imputado
+Purchase,entero,original,VARIABLE OBJETIVO: monto de la compra

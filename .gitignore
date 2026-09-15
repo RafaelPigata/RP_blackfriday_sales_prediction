@@ -1,0 +1,19 @@
+# Datasets pesados / regenerables (superan el limite de GitHub o son intermedios)
+bf_dataset_temporal.csv
+
+# Checkpoints de Jupyter
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Sistema
+.DS_Store
+Thumbs.db
