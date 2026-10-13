@@ -1,5 +1,11 @@
 # Datasets pesados / regenerables (superan el limite de GitHub o son intermedios)
 bf_dataset_temporal.csv
+# Version descomprimida del dataset curado del TP2 (~327MB); se versiona solo el .csv.gz
+bf_dataset_temporal_curado.csv/
+bf_dataset_temporal_curado.csv
+
+# Exports intermedios que genera el TP3 al correrlo localmente
+salidas/
 
 # Checkpoints de Jupyter
 .ipynb_checkpoints/

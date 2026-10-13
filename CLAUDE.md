@@ -22,15 +22,20 @@ git merge upstream/main
 
 ## Estado de la entrega
 
+Los archivos que terminan en `_ENTREGAR` son exactamente lo que se entregó y lo que ve el
+profesor. El resto de las notebooks son borradores o versiones individuales previas.
+
 - **TP1 — Análisis y visualización de datos**: ✅ entregado. Notebook final:
-  [`TP1_BlackFriday_Analisis.ipynb`](TP1_BlackFriday_Analisis.ipynb).
-- **TP2 — Análisis exploratorio y curación de datos**: ✅ entregado, usando la versión de
-  **Sergio** como notebook final: [`TP2_BlackFriday_AEC_Sergio.ipynb`](TP2_BlackFriday_AEC_Sergio.ipynb).
-  Quedan además como referencia/historial dos borradores propios previos
-  ([`TP2.ipynb`](TP2.ipynb), [`TP2_v2.ipynb`](TP2_v2.ipynb)) que **no** son la entrega final.
-- **TP3 — Análisis supervisado y no supervisado**: 🔜 enunciado recién incorporado
-  ([`TP3 BlackFriday Sales Prediction - Análisis Supervisado y No Supervisado.md`](<TP3 BlackFriday Sales Prediction - Análisis Supervisado y No Supervisado.md>)),
-  todavía sin empezar a resolver.
+  [`TP1_BlackFriday_Analisis_ENTREGAR.ipynb`](TP1_BlackFriday_Analisis_ENTREGAR.ipynb).
+- **TP2 — Análisis exploratorio y curación de datos**: ✅ entregado. Notebook final:
+  [`TP2_BlackFriday_AEC_G1_ENTREGAR.ipynb`](TP2_BlackFriday_AEC_G1_ENTREGAR.ipynb), que es la
+  versión de **Sergio** ([`TP2_BlackFriday_AEC_Sergio.ipynb`](TP2_BlackFriday_AEC_Sergio.ipynb))
+  sin la celda de exportación a PDF ni una celda auxiliar suelta. Quedan además como
+  historial dos borradores propios previos ([`TP2.ipynb`](TP2.ipynb), [`TP2_v2.ipynb`](TP2_v2.ipynb))
+  que **no** son la entrega final.
+- **TP3 — Análisis supervisado y no supervisado**: ✅ entregado. Notebook final unificada del
+  grupo: [`TP3_Unificado_ENTREGAR.ipynb`](TP3_Unificado_ENTREGAR.ipynb). El enlace de Colab
+  entregado está en [`Link.txt`](Link.txt).
 
 ## TP1 — Análisis y visualización de datos
 
@@ -86,22 +91,46 @@ Puntos cubiertos:
    - [`datos/diccionario_bf_curado.csv`](datos/diccionario_bf_curado.csv) (diccionario de
      variables originales, modificadas y generadas)
 
-## TP3 — Análisis supervisado y no supervisado (pendiente)
+## TP3 — Análisis supervisado y no supervisado
 
-Enunciado recién agregado por la cátedra:
-[`TP3 BlackFriday Sales Prediction - Análisis Supervisado y No Supervisado.md`](<TP3 BlackFriday Sales Prediction - Análisis Supervisado y No Supervisado.md>).
-Todavía no se empezó a resolver — es el próximo trabajo a encarar, presumiblemente
-construyendo modelos (supervisados para predecir `Purchase` y no supervisados para
-segmentación) sobre el dataset curado del TP2.
+Enunciado: [`TP3 BlackFriday Sales Prediction - Análisis Supervisado y No Supervisado.md`](<TP3 BlackFriday Sales Prediction - Análisis Supervisado y No Supervisado.md>).
+
+La notebook entregada ([`TP3_Unificado_ENTREGAR.ipynb`](TP3_Unificado_ENTREGAR.ipynb)) junta
+las partes que hizo cada integrante, sin modificar su contenido, más una comparación final:
+
+1. **Predicción de ventas diarias** (Rafael Pignata y Constanza Bencharski). Parte del
+   dataset curado del TP2 (`datos/bf_dataset_temporal_curado.csv.gz`, leído desde el raw de
+   GitHub de este fork) agregado a nivel día. Cubre tabla de modelado con calendario, cercanía
+   a Black Friday, contexto económico, lags y medias móviles; baseline estacional y SARIMA;
+   validación temporal (`TimeSeriesSplit`); Ridge y LightGBM; evaluación sobre 2024; análisis
+   de la ventana de Black Friday; interpretación; y predicción recursiva de todo 2024 desde el
+   31/12/2023. Versión individual previa: [`TP3_Parte1_Prediccion_Ventas.ipynb`](TP3_Parte1_Prediccion_Ventas.ipynb),
+   con su plan y bitácora en [`TP3_plan_punto1.md`](TP3_plan_punto1.md) y
+   [`TP3_avance_punto1.md`](TP3_avance_punto1.md).
+2. **Segmentación de clientes** (Sergio Santamarina), sobre `datos/bf_dataset.csv` del TP1:
+   K-Means y Ward por comportamiento de compra, caracterización sociodemográfica y
+   re-segmentación agregando la demografía (one-hot ingenuo, reponderado y vía PCA).
+3. **Segmentación de productos** (Noelia Ramos), mismo dataset y mismos métodos, a nivel
+   `Product_ID`, sin y con el perfil de los compradores.
+4. **Comparación de las segmentaciones** (síntesis conjunta): las ocho particiones, ARI entre
+   métodos y entre representaciones, e interpretabilidad.
+
+Las Partes 2 y 3 escriben exports intermedios (`clusters_clientes_TP3.csv`,
+`clusters_productos_TP3.csv`) en `salidas/`, que la Parte 4 vuelve a leer.
 
 ## Estructura del repo
 
 ```
 README.md                                  Consigna general / diccionario de datos original
 CLAUDE.md                                  Este archivo
-TP1_BlackFriday_Analisis.ipynb             Notebook final del TP1
-TP2_BlackFriday_AEC_Sergio.ipynb           Notebook final del TP2 (entregado)
+TP1_BlackFriday_Analisis_ENTREGAR.ipynb    Notebook entregada del TP1
+TP2_BlackFriday_AEC_G1_ENTREGAR.ipynb      Notebook entregada del TP2
+TP2_BlackFriday_AEC_Sergio.ipynb           Versión de Sergio del TP2 (base de la entregada)
 TP2.ipynb, TP2_v2.ipynb                    Borradores previos del TP2 (no entregados)
+TP3_Unificado_ENTREGAR.ipynb               Notebook entregada del TP3 (4 partes)
+TP3_Parte1_Prediccion_Ventas.ipynb         Versión individual previa de la Parte 1 del TP3
+TP3_plan_punto1.md, TP3_avance_punto1.md   Plan y bitácora de la Parte 1 del TP3
+Link.txt                                   Enlace de Colab entregado
 TP1 ... .md / .pdf                         Enunciado del TP1
 TP2 ... .md                                Enunciado del TP2
 TP3 ... .md                                Enunciado del TP3
@@ -118,6 +147,9 @@ datos/
 - **No versionar** `bf_dataset_temporal.csv` (versión sin comprimir, ~256MB, supera el
   límite de GitHub): está en `.gitignore` y se regenera descomprimiendo
   `datos/bf_dataset_temporal.csv.gz`.
+- Tampoco versionar la versión descomprimida del dataset curado
+  (`datos/bf_dataset_temporal_curado.csv/`, ~327MB) ni la carpeta `salidas/` que generan las
+  Partes 2 y 3 del TP3: ambas están en `.gitignore`.
 - `datos/bf_dataset_temporal_curado.csv.gz` pesa ~69MB; GitHub lo acepta pero avisa que
   supera los 50MB recomendados. Si el repo sigue creciendo con más datasets, evaluar
   migrar a Git LFS.
