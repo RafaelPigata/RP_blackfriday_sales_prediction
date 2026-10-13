@@ -23,16 +23,15 @@ git merge upstream/main
 ## Estado de la entrega
 
 Los archivos que terminan en `_ENTREGAR` son exactamente lo que se entregó y lo que ve el
-profesor. El resto de las notebooks son borradores o versiones individuales previas.
+profesor. Los borradores previos (`TP2.ipynb`, `TP2_v2.ipynb`, la versión de Sergio del TP2 y
+el plan y la bitácora de la Parte 1 del TP3) se sacaron del repo; siguen disponibles en el
+historial de git, en el commit `7ecf066` (por ejemplo: `git checkout 7ecf066 -- TP2.ipynb`).
 
 - **TP1 — Análisis y visualización de datos**: ✅ entregado. Notebook final:
   [`TP1_BlackFriday_Analisis_ENTREGAR.ipynb`](TP1_BlackFriday_Analisis_ENTREGAR.ipynb).
 - **TP2 — Análisis exploratorio y curación de datos**: ✅ entregado. Notebook final:
   [`TP2_BlackFriday_AEC_G1_ENTREGAR.ipynb`](TP2_BlackFriday_AEC_G1_ENTREGAR.ipynb), que es la
-  versión de **Sergio** ([`TP2_BlackFriday_AEC_Sergio.ipynb`](TP2_BlackFriday_AEC_Sergio.ipynb))
-  sin la celda de exportación a PDF ni una celda auxiliar suelta. Quedan además como
-  historial dos borradores propios previos ([`TP2.ipynb`](TP2.ipynb), [`TP2_v2.ipynb`](TP2_v2.ipynb))
-  que **no** son la entrega final.
+  versión de **Sergio** sin la celda de exportación a PDF ni una celda auxiliar suelta.
 - **TP3 — Análisis supervisado y no supervisado**: ✅ entregado. Notebook final unificada del
   grupo: [`TP3_Unificado_ENTREGAR.ipynb`](TP3_Unificado_ENTREGAR.ipynb). El enlace de Colab
   entregado está en [`Link.txt`](Link.txt).
@@ -104,9 +103,7 @@ las partes que hizo cada integrante, sin modificar su contenido, más una compar
    a Black Friday, contexto económico, lags y medias móviles; baseline estacional y SARIMA;
    validación temporal (`TimeSeriesSplit`); Ridge y LightGBM; evaluación sobre 2024; análisis
    de la ventana de Black Friday; interpretación; y predicción recursiva de todo 2024 desde el
-   31/12/2023. Versión individual previa: [`TP3_Parte1_Prediccion_Ventas.ipynb`](TP3_Parte1_Prediccion_Ventas.ipynb),
-   con su plan y bitácora en [`TP3_plan_punto1.md`](TP3_plan_punto1.md) y
-   [`TP3_avance_punto1.md`](TP3_avance_punto1.md).
+   31/12/2023. Versión individual previa: [`TP3_Parte1_Prediccion_Ventas.ipynb`](TP3_Parte1_Prediccion_Ventas.ipynb).
 2. **Segmentación de clientes** (Sergio Santamarina), sobre `datos/bf_dataset.csv` del TP1:
    K-Means y Ward por comportamiento de compra, caracterización sociodemográfica y
    re-segmentación agregando la demografía (one-hot ingenuo, reponderado y vía PCA).
@@ -125,11 +122,8 @@ README.md                                  Consigna general / diccionario de dat
 CLAUDE.md                                  Este archivo
 TP1_BlackFriday_Analisis_ENTREGAR.ipynb    Notebook entregada del TP1
 TP2_BlackFriday_AEC_G1_ENTREGAR.ipynb      Notebook entregada del TP2
-TP2_BlackFriday_AEC_Sergio.ipynb           Versión de Sergio del TP2 (base de la entregada)
-TP2.ipynb, TP2_v2.ipynb                    Borradores previos del TP2 (no entregados)
 TP3_Unificado_ENTREGAR.ipynb               Notebook entregada del TP3 (4 partes)
 TP3_Parte1_Prediccion_Ventas.ipynb         Versión individual previa de la Parte 1 del TP3
-TP3_plan_punto1.md, TP3_avance_punto1.md   Plan y bitácora de la Parte 1 del TP3
 Link.txt                                   Enlace de Colab entregado
 TP1 ... .md / .pdf                         Enunciado del TP1
 TP2 ... .md                                Enunciado del TP2
